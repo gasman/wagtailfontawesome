@@ -73,6 +73,7 @@ class egg_info(base_egg_info):
 
     def compile_assets(self):
         try:
+            subprocess.check_call(['npm', 'install'])
             subprocess.check_call(['npm', 'run', 'build'])
         except (OSError, subprocess.CalledProcessError) as e:
             print('Error compiling assets: ' + str(e))
